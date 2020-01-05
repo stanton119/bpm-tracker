@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" id="bootstrap-css"
+		href="http://www.richard-stanton.com/wp-content/themes/richardstanton/library/css/bootstrap.css?ver=1.0"
+		type="text/css" media="all">
+	<link rel="stylesheet" id="wpbs-style-css"
+		href="http://www.richard-stanton.com/wp-content/themes/richardstanton/style.css?ver=1.0" type="text/css"
+		media="all">
+
+
+	<title>BPM Tracker</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"
+		charset="utf-8"></script>
+	<!-- <script src="http://www.richard-stanton.com/files/bpmtracker/js/bpm.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="js/bpm.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="http://www.richard-stanton.com/files/bpmtracker/js/c3.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="http://d3js.org/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- Load c3.css -->
+	<link href="http://www.richard-stanton.com/files/bpmtracker/css/c3.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+
+	<div class="container-fluid" id="clickBox" style="position: relative">
+		<div class="row text-center">
+			<h1><span class="label label-success">bpm: <span id="bpm_display">Calc</span></span> <span
+					class="label label-info">Score: <span id="score_display">Calc</span></span></h1>
+		</div>
+		<div id="overlayText" style="width: 100%; z-index: 10; position: absolute; top: 300px" class="text-center">
+			<h1><span class="label label-warning">Click here, or tap any key to start!</span></h1>
+		</div>
+
+		<div id="myChart" class="row" style="position: absolute">
+
+		</div>
+
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		construct_graph();
+		// event handlers
+		$(document).keydown(function (e) {
+			// fade info message
+			$('#overlayText').fadeOut(500, function () { $(this).remove(); });
+			get_beat();
+		});
+		// replace with main div click function
+		jQuery('#clickBox').click(function (event) {
+			// fade info message
+			$('#overlayText').fadeOut(500, function () { $(this).remove(); });
+			get_beat();
+		});
+	</script>
+
+
+
+</body>
+
+</html>
